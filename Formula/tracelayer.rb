@@ -10,8 +10,8 @@
 class Tracelayer < Formula
   desc "Agent-native software traceability system"
   homepage "https://github.com/carterlasalle/tracelayer"
-  url "https://files.pythonhosted.org/packages/5f/af/a27acefdff0b3e454be21d40e5c30880f646b1f24c549cc1e0f9f075d0ef/tracelayer-0.2.39.tar.gz"
-  sha256 "8c121d8f5ffce0cdf244d02dbdb68c6bf765db2a369541520607c8f5be724b84"
+  url "https://files.pythonhosted.org/packages/09/16/201c058cff72526d173b6e8ea9594cd3347a7e9dab81d48739a2b498659b/tracelayer-0.2.40.tar.gz"
+  sha256 "e54931a60678f1eb430ddf1f3763d335433ecf1c97f8a0ebbc20dceeefe95892"
   license "Apache-2.0"
 
   depends_on "pipx"
