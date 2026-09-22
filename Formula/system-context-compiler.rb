@@ -1,3 +1,4 @@
+# trace:v1 id=ops.scc-brew-formula work=WORK-SCC-DISTRIBUTION title="Homebrew formula: prebuilt binaries installed as scc"
 # Homebrew formula for System Context Compiler (scc).
 #
 # Copy into your own tap: <tap-repo>/Formula/system-context-compiler.rb
@@ -11,12 +12,19 @@
 #
 # Installs the prebuilt release binary for Linux x86_64 and macOS arm64.
 # Other platforms: `cargo install scc-cli` (see docs/INSTALL.md).
+#
+# There is no explicit `version` stanza: Homebrew scans it from the asset URL
+# (`brew audit --strict` flags the duplication).
 
 class SystemContextCompiler < Formula
   desc "Compile repositories into evidence-backed system context for coding agents"
   homepage "https://github.com/carterlasalle/scc"
-  version "0.2.6"
   license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   on_macos do
     on_arm do
@@ -30,11 +38,6 @@ class SystemContextCompiler < Formula
       url "https://github.com/carterlasalle/scc/releases/download/v0.2.6/scc-0.2.6-Linux-x86_64"
       sha256 "a9b41f94c0b759587c3b62c6f68ad27f21431c865deb23f6c1a18dae859cd640"
     end
-  end
-
-  livecheck do
-    url :stable
-    strategy :github_latest
   end
 
   def install
